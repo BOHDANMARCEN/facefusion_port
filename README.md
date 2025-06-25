@@ -57,10 +57,11 @@ commands:
 Portable Windows Installation
 -----------------------------
 
-For a quick portable setup on Windows, run `portable_install.bat`. The script
-downloads a standalone Python distribution, installs the required packages and
-creates `run_facefusion.bat` inside `D:\facefusion`. After it completes, launch
-FaceFusion by double clicking `run_facefusion.bat`.
+Use `portable_install.bat` for a one click setup on Windows. The script copies
+the repository to `D:\facefusion`, downloads a portable Python build, enables
+`pip`, installs the requirements and then places a `run_facefusion.bat`
+shortcut in the same directory. After it completes simply double click
+`D:\facefusion\run_facefusion.bat` to start FaceFusion.
 
 
 Documentation

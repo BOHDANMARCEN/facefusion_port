@@ -22,10 +22,13 @@ if not exist "%DEST%\python" (
     powershell -Command "Invoke-WebRequest -Uri '%PY_URL%' -OutFile '%PY_ARCHIVE%'"
     powershell -Command "Expand-Archive -LiteralPath '%PY_ARCHIVE%' -DestinationPath '%DEST%\python'"
     del "%PY_ARCHIVE%"
+    powershell -Command "(Get-Content -Path '%DEST%\python\python310._pth') -replace '#import site','import site' | Set-Content -Path '%DEST%\python\python310._pth'"
+    powershell -Command "Invoke-WebRequest -Uri 'https://bootstrap.pypa.io/get-pip.py' -OutFile '%DEST%\get-pip.py'"
+    %DEST%\python\python.exe "%DEST%\get-pip.py"
+    del "%DEST%\get-pip.py"
 )
 
 set "PATH=%DEST%\python;%PATH%"
-%DEST%\python\python.exe -m ensurepip
 %DEST%\python\python.exe -m pip install -r requirements.txt
 %DEST%\python\python.exe install.py --onnxruntime default --skip-conda
 
