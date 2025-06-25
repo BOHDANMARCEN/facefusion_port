@@ -54,6 +54,14 @@ commands:
     job-retry-all                                 retry all failed jobs
 ```
 
+Portable Windows Installation
+-----------------------------
+
+For a quick portable setup on Windows, run `portable_install.bat`. The script
+downloads a standalone Python distribution, installs the required packages and
+creates `run_facefusion.bat` inside `D:\facefusion`. After it completes, launch
+FaceFusion by double clicking `run_facefusion.bat`.
+
 
 Documentation
 -------------
